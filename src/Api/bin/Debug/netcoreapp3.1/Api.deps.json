@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Api/1.0.0": {
         "dependencies": {
+          "AppService": "1.0.0",
           "Dominio": "1.0.0",
           "Infra": "1.0.0",
           "Swashbuckle.AspNetCore.Swagger": "6.4.0",
@@ -367,6 +368,18 @@
         },
         "compile": {
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        }
+      },
+      "AppService/1.0.0": {
+        "dependencies": {
+          "Dominio": "1.0.0",
+          "Infra": "1.0.0"
+        },
+        "runtime": {
+          "AppService.dll": {}
+        },
+        "compile": {
+          "AppService.dll": {}
         }
       },
       "Dominio/1.0.0": {
@@ -2115,6 +2128,11 @@
       "sha512": "sha512-1Hh3atb3pi8c+v7n4/3N80Jj8RvLOXgWxzix6w3OZhB7zBGRwsy7FWr4e3hwgPweSBpwfElqj4V4nkjYabH9nQ==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.4.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    },
+    "AppService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Dominio/1.0.0": {
       "type": "project",

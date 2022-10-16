@@ -1,5 +1,5 @@
-﻿using Dominio.Models;
-using Dominio.Services;
+﻿using AppService.Interfaces;
+using Dominio.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -9,23 +9,17 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class CarrinhoController : ControllerBase
     {
-        private readonly ProdutoService _produtoService;
-        private readonly CarrinhoService _carrinhoService;
+        private readonly ICarrinhoApplicationService _carrinhoApplicationService;
 
-        public CarrinhoController(ProdutoService produtoService, CarrinhoService carrinhoService)
-        {
-            _produtoService = produtoService;
-            _carrinhoService = carrinhoService;
-        }
+        public CarrinhoController(ICarrinhoApplicationService carrinhoApplicationService) => 
+            _carrinhoApplicationService = carrinhoApplicationService;
 
         [HttpPost("Item")]
         public void AdicionarItem(Item item)
         {
             try
             {
-                Produto produto = _produtoService.ObterProdutoPorId(item.IdDoProduto);
-                if (produto != null)
-                    _carrinhoService.AdicionarProdutoNoCarrinho(item.IdDoProduto, item.Quantidade);
+                _carrinhoApplicationService.AdicionarProdutoNoCarrinho(item.IdDoProduto, item.Quantidade);
             }
             catch (Exception e)
             {
@@ -38,38 +32,21 @@ namespace Api.Controllers
         {
             try
             {
-                _carrinhoService.LimparCarrinho();
+                _carrinhoApplicationService.LimparCarrinho();
             }
             catch (Exception e)
             {
                 throw e;
             }
-
         }
 
         [HttpGet("Total")]
         public decimal ObterTotalDoCarrinho()
         {
-            decimal valorTotal = 0;
-
+            decimal valorTotal;
             try
             {
-                var listaProdutosCarrinho = _carrinhoService.ObterProdutosCarrinho();
-                foreach (var item in listaProdutosCarrinho)
-                {
-                    var produto = _produtoService.ObterProdutoPorId(item.IdDoProduto);
-                    if (produto == null)
-                        throw new Exception("Código do produto não encontrado");
-
-                    if (produto.Promocao == null || produto.Promocao.Id == 0)
-                    {
-                        valorTotal += (item.Quantidade * produto.Preco);
-                    }
-                    else
-                    {
-                        valorTotal += (item.Quantidade * produto.Preco) / 2;
-                    }
-                }
+                valorTotal = _carrinhoApplicationService.ObterValorTotalCarrinho();
             }
             catch (Exception)
             {
@@ -78,8 +55,5 @@ namespace Api.Controllers
 
             return valorTotal;
         }
-
-
-        // Email: edimarcos.maranhao@siteware.com.br
     }
 }

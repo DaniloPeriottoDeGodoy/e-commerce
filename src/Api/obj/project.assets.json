@@ -50,6 +50,20 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "AppService/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Dominio": "1.0.0",
+          "Infra": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AppService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AppService.dll": {}
+        }
+      },
       "Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -162,6 +176,11 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+    "AppService/1.0.0": {
+      "type": "project",
+      "path": "../../AppService/AppService.csproj",
+      "msbuildProject": "../../AppService/AppService.csproj"
+    },
     "Dominio/1.0.0": {
       "type": "project",
       "path": "../../Dominio/Dominio.csproj",
@@ -175,6 +194,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "AppService >= 1.0.0",
       "Dominio >= 1.0.0",
       "Infra >= 1.0.0",
       "Swashbuckle.AspNetCore.Swagger >= 6.4.0",
@@ -214,6 +234,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\DEV\\e-commerce\\AppService\\AppService.csproj": {
+              "projectPath": "C:\\DEV\\e-commerce\\AppService\\AppService.csproj"
+            },
             "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
               "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
             },

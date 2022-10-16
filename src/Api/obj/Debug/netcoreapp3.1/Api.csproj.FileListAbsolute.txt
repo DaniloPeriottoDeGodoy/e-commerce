@@ -108,3 +108,5 @@ C:\DEV\e-commerce\src\Api\obj\Debug\netcoreapp3.1\staticwebassets\Api.StaticWebA
 C:\DEV\e-commerce\src\Api\obj\Debug\netcoreapp3.1\Api.dll
 C:\DEV\e-commerce\src\Api\obj\Debug\netcoreapp3.1\Api.pdb
 C:\DEV\e-commerce\src\Api\obj\Debug\netcoreapp3.1\Api.genruntimeconfig.cache
+C:\DEV\e-commerce\src\Api\bin\Debug\netcoreapp3.1\AppService.dll
+C:\DEV\e-commerce\src\Api\bin\Debug\netcoreapp3.1\AppService.pdb
