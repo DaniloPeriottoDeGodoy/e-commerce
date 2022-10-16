@@ -16,3 +16,11 @@ C:\_DANILO\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.AssemblyInfo.
 C:\_DANILO\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.csproj.CoreCompileInputs.cache
 C:\_DANILO\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.dll
 C:\_DANILO\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.pdb
+C:\DEV\e-commerce\Dominio\bin\Debug\netstandard2.0\Dominio.deps.json
+C:\DEV\e-commerce\Dominio\bin\Debug\netstandard2.0\Dominio.dll
+C:\DEV\e-commerce\Dominio\bin\Debug\netstandard2.0\Dominio.pdb
+C:\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.AssemblyInfoInputs.cache
+C:\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.AssemblyInfo.cs
+C:\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.csproj.CoreCompileInputs.cache
+C:\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.dll
+C:\DEV\e-commerce\Dominio\obj\Debug\netstandard2.0\Dominio.pdb

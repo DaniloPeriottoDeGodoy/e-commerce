@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {}
+    "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {}
   },
   "projects": {
-    "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
+    "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-        "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\obj\\",
+        "outputPath": "C:\\DEV\\e-commerce\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

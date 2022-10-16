@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "src\Api\Api.csproj",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api.Tests", "test\Api.Tests\Api.Tests.csproj", "{445DEC57-B745-409F-8E07-9BD9E01663DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{8018B1C1-2509-4A2E-97D7-3F0DD483DABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{8018B1C1-2509-4A2E-97D7-3F0DD483DABB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infra", "Infra\Infra.csproj", "{895411DD-887C-43C9-944A-865F969DA227}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj", "{895411DD-887C-43C9-944A-865F969DA227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppService", "AppService\AppService.csproj", "{A9CB5D1C-166D-48EF-9DAA-7F093552E305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{895411DD-887C-43C9-944A-865F969DA227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895411DD-887C-43C9-944A-865F969DA227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895411DD-887C-43C9-944A-865F969DA227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CB5D1C-166D-48EF-9DAA-7F093552E305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CB5D1C-166D-48EF-9DAA-7F093552E305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CB5D1C-166D-48EF-9DAA-7F093552E305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CB5D1C-166D-48EF-9DAA-7F093552E305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

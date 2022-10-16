@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ThKhZNDYnfiRp8BjHLa9kJJC3FTcB9p0IwbZRl0Wybbb4F2res2HoHYtl9VKHZ0HnHG9VzHSKaSX/CvL1lGVJg==",
+  "dgSpecHash": "YHi/M4qqi8GkJ1oY4OcNrrhbrd/9QX8j2nPMurR5Jq4m5OCGiUWVRs4jVf2ewULq/x4TjuW1ADl8/Gm4cjOqOA==",
   "success": true,
-  "projectFilePath": "C:\\_DANILO\\DEV\\e-commerce\\src\\Api\\Api.csproj",
+  "projectFilePath": "C:\\DEV\\e-commerce\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dgodoy\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\dgodoy\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",

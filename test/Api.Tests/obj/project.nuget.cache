@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u+J7Aa5LDVOelb09ET/RhPAgjOWQj4HHGGCjVInhJmvxdPVzwMv9cBPcsCFo3iD+lc13Jzy14AofT70sqfuJKQ==",
+  "dgSpecHash": "xK5XZxGRA4Wx+BkYOhLPnFBYE4XrJ7B5bCB6Vd0D08FWThRQH/vx/hAYl12uRWOgj0ya8NU0j66oUhMSb8uuFQ==",
   "success": true,
-  "projectFilePath": "C:\\_DANILO\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
+  "projectFilePath": "C:\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dgodoy\\.nuget\\packages\\bodi\\1.4.1\\bodi.1.4.1.nupkg.sha512",
     "C:\\Users\\dgodoy\\.nuget\\packages\\cucumber.messages\\6.0.1\\cucumber.messages.6.0.1.nupkg.sha512",

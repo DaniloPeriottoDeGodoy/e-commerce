@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
-      "projectName": "Dominio",
-      "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
+      "projectUniqueName": "C:\\DEV\\e-commerce\\AppService\\AppService.csproj",
+      "projectName": "AppService",
+      "projectPath": "C:\\DEV\\e-commerce\\AppService\\AppService.csproj",
       "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-      "outputPath": "C:\\DEV\\e-commerce\\Dominio\\obj\\",
+      "outputPath": "C:\\DEV\\e-commerce\\AppService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

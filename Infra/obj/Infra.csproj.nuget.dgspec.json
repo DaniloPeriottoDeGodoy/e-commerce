@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj": {}
+    "C:\\DEV\\e-commerce\\Infra\\Infra.csproj": {}
   },
   "projects": {
-    "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
+    "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
+        "projectUniqueName": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
         "projectName": "Dominio",
-        "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
+        "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-        "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\obj\\",
+        "outputPath": "C:\\DEV\\e-commerce\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj": {
+    "C:\\DEV\\e-commerce\\Infra\\Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj",
+        "projectUniqueName": "C:\\DEV\\e-commerce\\Infra\\Infra.csproj",
         "projectName": "Infra",
-        "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj",
+        "projectPath": "C:\\DEV\\e-commerce\\Infra\\Infra.csproj",
         "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-        "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\obj\\",
+        "outputPath": "C:\\DEV\\e-commerce\\Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -92,8 +92,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
-                "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
+              "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
               }
             }
           }

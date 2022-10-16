@@ -6706,11 +6706,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
+      "projectUniqueName": "C:\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
       "projectName": "Api.Tests",
-      "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
+      "projectPath": "C:\\DEV\\e-commerce\\test\\Api.Tests\\Api.Tests.csproj",
       "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-      "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\test\\Api.Tests\\obj\\",
+      "outputPath": "C:\\DEV\\e-commerce\\test\\Api.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

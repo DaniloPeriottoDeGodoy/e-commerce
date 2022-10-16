@@ -201,11 +201,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj",
+      "projectUniqueName": "C:\\DEV\\e-commerce\\Infra\\Infra.csproj",
       "projectName": "Infra",
-      "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj",
+      "projectPath": "C:\\DEV\\e-commerce\\Infra\\Infra.csproj",
       "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-      "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\obj\\",
+      "outputPath": "C:\\DEV\\e-commerce\\Infra\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -226,8 +226,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
+            "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
             }
           }
         }

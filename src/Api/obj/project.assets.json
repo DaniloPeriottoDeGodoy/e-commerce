@@ -189,11 +189,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\_DANILO\\DEV\\e-commerce\\src\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\DEV\\e-commerce\\src\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\src\\Api\\Api.csproj",
+      "projectPath": "C:\\DEV\\e-commerce\\src\\Api\\Api.csproj",
       "packagesPath": "C:\\Users\\dgodoy\\.nuget\\packages\\",
-      "outputPath": "C:\\_DANILO\\DEV\\e-commerce\\src\\Api\\obj\\",
+      "outputPath": "C:\\DEV\\e-commerce\\src\\Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -214,11 +214,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
+            "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\DEV\\e-commerce\\Dominio\\Dominio.csproj"
             },
-            "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj": {
-              "projectPath": "C:\\_DANILO\\DEV\\e-commerce\\Infra\\Infra.csproj"
+            "C:\\DEV\\e-commerce\\Infra\\Infra.csproj": {
+              "projectPath": "C:\\DEV\\e-commerce\\Infra\\Infra.csproj"
             }
           }
         }
