@@ -25,7 +25,7 @@ namespace AppService.Services
             if (promocao == null)
                 throw new Exception("Código de promoção não encontrado.");
 
-            _produtoService.VincularProdutoNaPromocao(idDaPromocao, idDoProduto);
+            _produtoService.VincularProdutoNaPromocao(promocao, idDoProduto);
         }
     }
 }

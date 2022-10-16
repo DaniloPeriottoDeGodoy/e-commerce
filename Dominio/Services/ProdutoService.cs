@@ -29,9 +29,9 @@ namespace Dominio.Services
 
         }
 
-        public void VincularProdutoNaPromocao(int idDaPromocao, int idDoProduto)
+        public void VincularProdutoNaPromocao(Promocao promocao, int idDoProduto)
         {
-            _repository.VincularProdutoNaPromocao(idDaPromocao, idDoProduto);
+            _repository.VincularProdutoNaPromocao(promocao, idDoProduto);
         }
     }
 }

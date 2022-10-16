@@ -24,13 +24,10 @@ namespace Infra.Repositories
             return null;
         }
 
-        public void VincularProdutoNaPromocao(int idDaPromocao, int idDoProduto)
+        public void VincularProdutoNaPromocao(Promocao promocao, int idDoProduto)
         {
             var produto = this.GetByID(idDoProduto);
-            produto.Promocao = new Promocao
-            {
-                Id = idDaPromocao
-            };
+            produto.Promocao = promocao;
         }
     }
 }

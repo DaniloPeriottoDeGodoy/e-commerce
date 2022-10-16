@@ -18,12 +18,14 @@ namespace Infra.Repositories
                     new Promocao
                     {
                         Id = 1,
-                        Descricao= "Leve 2 e Pague 1"
+                        Descricao = "Leve 2 e Pague 1",
+                        TipoPromocao = Dominio.Resources.TipoPromocao.LeveDoisPagueUm
                     },
                     new Promocao
                     {
                         Id = 2,
-                        Descricao= "3 por R$10,00"
+                        Descricao= "3 por R$10,00",
+                        TipoPromocao = Dominio.Resources.TipoPromocao.TresPorDez
                     }
                 };
             }
