@@ -1,8 +1,10 @@
-﻿namespace AppService.Interfaces
+﻿using Dominio.Models;
+
+namespace AppService.Interfaces
 {
     public interface ICarrinhoApplicationService
     {
-        void AdicionarProdutoNoCarrinho(int idDoProduto, int quantidade);
+        void AdicionarProdutoNoCarrinho(Item item);
         void LimparCarrinho();
         decimal ObterValorTotalCarrinho();
     }

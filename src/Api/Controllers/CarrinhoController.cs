@@ -11,15 +11,14 @@ namespace Api.Controllers
     {
         private readonly ICarrinhoApplicationService _carrinhoApplicationService;
 
-        public CarrinhoController(ICarrinhoApplicationService carrinhoApplicationService) => 
-            _carrinhoApplicationService = carrinhoApplicationService;
+        public CarrinhoController(ICarrinhoApplicationService carrinhoApplicationService) => _carrinhoApplicationService = carrinhoApplicationService;
 
         [HttpPost("Item")]
         public void AdicionarItem(Item item)
         {
             try
             {
-                _carrinhoApplicationService.AdicionarProdutoNoCarrinho(item.IdDoProduto, item.Quantidade);
+                _carrinhoApplicationService.AdicionarProdutoNoCarrinho(item);
             }
             catch (Exception e)
             {

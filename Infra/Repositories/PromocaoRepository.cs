@@ -15,8 +15,7 @@ namespace Infra.Repositories
         };
 
         public PromocaoRepository()
-        {
-            
+        {            
         }
 
         public Promocao ObterPorId(int idDaPromocao) => _promocoes?.FirstOrDefault(x => x.Id == idDaPromocao);

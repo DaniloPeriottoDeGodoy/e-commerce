@@ -14,14 +14,6 @@ namespace Infra.Repositories
             new Produto { Id = 3, Nome = "Sanfona do Buxin", Preco = 10 }
         };
 
-        public List<Produto> GetAll() => ListaProdutos;
-
-        public Produto ObterPorId(int id)
-        {
-            if (id > 0)
-                return ListaProdutos.FirstOrDefault(x => x.Id == id);
-
-            return null;
-        }
+        public Produto ObterPorId(int id) => ListaProdutos?.FirstOrDefault(x => x.Id == id);
     }
 }

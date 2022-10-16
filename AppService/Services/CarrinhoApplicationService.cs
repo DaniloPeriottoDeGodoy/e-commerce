@@ -19,13 +19,13 @@ namespace AppService.Services
             _produtoService = produtoService;
         }
 
-        public void AdicionarProdutoNoCarrinho(int idDoProduto, int quantidade)
+        public void AdicionarProdutoNoCarrinho(Item item)
         {
-            Produto produto = _produtoService.ObterProdutoPorId(idDoProduto);
+            Produto produto = _produtoService.ObterProdutoPorId(item.IdDoProduto);
             if (produto != null)
             {
                 var carrinho = _carrinhoService.ObterCarrinho();
-                carrinho.AdicionarProdutoNoCarrinho(idDoProduto, quantidade);
+                carrinho.AdicionarProdutoNoCarrinho(produto, item.Quantidade);
             }
         }
 
@@ -37,53 +37,8 @@ namespace AppService.Services
 
         public decimal ObterValorTotalCarrinho()
         {
-            decimal valorTotal = 0;
-
-            Carrinho carrinho = _carrinhoService.ObterCarrinho();
-
-            if (carrinho.ListaProdutosCarrinho.Count == 0)
-                return 0;
-
-            var listaAgrupadaPorProdutoxQuantidade = new List<Item>();
-            foreach (var item in carrinho.ListaProdutosCarrinho)
-            {
-                // Quando não tem nada adiciona o primeiro produto à lista
-                if (listaAgrupadaPorProdutoxQuantidade.Count == 0)
-                {
-                    listaAgrupadaPorProdutoxQuantidade.Add(item);
-                    continue;
-                }
-
-                var jaTemEsseProduto = listaAgrupadaPorProdutoxQuantidade.Exists(x => x.IdDoProduto == item.IdDoProduto);
-                if (jaTemEsseProduto)
-                {
-                    listaAgrupadaPorProdutoxQuantidade.FirstOrDefault(x => x.IdDoProduto == item.IdDoProduto).Quantidade += item.Quantidade;
-                }
-            }
-
-            foreach (var item in listaAgrupadaPorProdutoxQuantidade)
-            {
-                var produto = _produtoService.ObterProdutoPorId(item.IdDoProduto);
-                if (produto == null)
-                    throw new Exception("Código do produto não encontrado");
-
-                if (!produto.PossuiPromocao)
-                {
-                    valorTotal += (item.Quantidade * produto.Preco);
-                }
-                else
-                {
-                    if (produto.Promocao.TipoPromocao == TipoPromocao.LeveDoisPagueUm)
-                        valorTotal += (item.Quantidade * produto.Preco) / 2;
-
-                    if (produto.Promocao.TipoPromocao == TipoPromocao.TresPorDez && item.Quantidade == 3)
-                    {
-                        valorTotal += 10;
-                    }
-                }
-            }
-
-            return valorTotal;
+            Carrinho carrinho = _carrinhoService.ObterCarrinho();            
+            return carrinho.ObterValorTotalCarrinho();
         }
     }
 }

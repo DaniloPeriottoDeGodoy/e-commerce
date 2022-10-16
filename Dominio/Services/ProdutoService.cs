@@ -1,8 +1,6 @@
 ﻿using Dominio.Interfaces;
 using Dominio.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Dominio.Services
 {
@@ -10,10 +8,7 @@ namespace Dominio.Services
     {
         private readonly IProdutoRepository _repository;
 
-        public ProdutoService(IProdutoRepository repository)
-        {
-            _repository = repository;
-        }
+        public ProdutoService(IProdutoRepository repository) => _repository = repository;
 
         public Produto ObterProdutoPorId(int id)
         {
@@ -23,10 +18,8 @@ namespace Dominio.Services
             }
             catch (Exception e)
             {
-                // Alterar depois para DTO
                 throw;
             }
-
         }
     }
 }

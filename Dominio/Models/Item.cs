@@ -1,12 +1,18 @@
-﻿namespace Dominio.Models
+﻿using Dominio.Resources;
+
+namespace Dominio.Models
 {
     public class Item
     {
         #region Construtores
 
-        public Item(int idDoProduto, int quantidade)
+        public Item(Produto produto, int quantidade)
         {
-            this.IdDoProduto = idDoProduto;
+            this.Produto = produto;
+
+            if(this.Produto != null)
+                this.IdDoProduto = this.Produto.Id;
+
             this.Quantidade = quantidade;
             this.ValidarItem();
         }
@@ -22,6 +28,7 @@
 
         public int IdDoProduto { get; set; }
         public int Quantidade { get; set; }
+        public Produto Produto { get; set; }        
 
         #endregion
 
