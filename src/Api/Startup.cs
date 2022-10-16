@@ -1,3 +1,4 @@
+using AppService.DI;
 using AppService.Interfaces;
 using AppService.Services;
 using Dominio.Interfaces;
@@ -29,17 +30,8 @@ namespace Api
 				x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "teste", Version = "v1" });
 			});
 
-			services.AddTransient<IProdutoRepository, ProdutoRepository>();
-			services.AddScoped(typeof(ProdutoService));
-			
-			services.AddTransient<ICarrinhoRepository, CarrinhoRepository>();
-			services.AddScoped(typeof(CarrinhoService));
-
-			services.AddTransient<IPromocaoRepository, PromocaoRepository>();
-			services.AddScoped(typeof(PromocaoService));
-
-			services.AddTransient<ICarrinhoApplicationService, CarrinhoApplicationService>();
-			services.AddTransient<IProdutoApplicationService, ProdutoApplicationService>();
+			// Transfiro para a camada ApplicationService a responsabilidade de fazer a Injeção de dependência
+			ServiceCollectionContainer.Initializer(services);			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

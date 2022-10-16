@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "n5avVloX5RZwgMtzz0S0xD78MnmjdxbkHg1C1G9jmfL/bdCkbSnr0TPWMf96ZHLu4vTF8tGQXSIA1ywzqT/uXw==",
+  "dgSpecHash": "+McCvSokffjjxv3Lu8siN9nDfM4RQ7761jDpWazZcf9OeP2hucQL0icedU/oW1q73K/JYPdRPXaqf4z+YAH+og==",
   "success": true,
   "projectFilePath": "C:\\DEV\\e-commerce\\AppService\\AppService.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\dgodoy\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\dgodoy\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\dgodoy\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\dgodoy\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\dgodoy\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\dgodoy\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\dgodoy\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\dgodoy\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
