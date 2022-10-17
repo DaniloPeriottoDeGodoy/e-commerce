@@ -1,4 +1,5 @@
 ﻿using AppService.Interfaces;
+using Dominio.DTO.Produto;
 using Dominio.Services;
 using System;
 
@@ -7,25 +8,38 @@ namespace AppService.Services
     public class ProdutoApplicationService : IProdutoApplicationService
     {
         private readonly PromocaoService _promocaoService;
-        private readonly ProdutoService _produtoService;        
+        private readonly ProdutoService _produtoService;
 
         public ProdutoApplicationService(PromocaoService promocaoService, ProdutoService produtoService)
         {
             _promocaoService = promocaoService;
-            _produtoService = produtoService;            
+            _produtoService = produtoService;
         }
 
-        public void VincularPromocaoAoProduto(int idDaPromocao, int idDoProduto)
+        public DtoVincularPromocaoAoProdutoResponse VincularPromocaoAoProduto(DtoVincularPromocaoAoProdutoRequest dtoRequest)
         {
-            var produto = _produtoService.ObterProdutoPorId(idDoProduto);
-            if (produto == null)
-                throw new Exception("Código de produto não encontrado.");
+            DtoVincularPromocaoAoProdutoResponse response = new DtoVincularPromocaoAoProdutoResponse();
 
-            var promocao = _promocaoService.ObterPromocaoPorId(idDaPromocao);
+            var produto = _produtoService.ObterProdutoPorId(dtoRequest.IdDoProduto);
+            if (produto == null)
+                response.AdicionarErro("Produto não encontrado.");
+
+            var promocao = _promocaoService.ObterPromocaoPorId(dtoRequest.IdDaPromocao);
             if (promocao == null)
-                throw new Exception("Código de promoção não encontrado.");
+                response.AdicionarErro("Promoção não encontrada.");
+
+            if (response.PossuiErros)
+                return response;
 
             produto.VincularPromocao(promocao);
+
+            response.IdProduto = produto.Id;
+            response.IdPromocao = promocao.Id;
+            response.NomeDoProduto = produto.Nome;
+            response.NomePromocao = promocao.Descricao;
+            response.Preco = produto.Preco;
+
+            return response;
         }
     }
 }

@@ -10,16 +10,6 @@ namespace Dominio.Services
 
         public ProdutoService(IProdutoRepository repository) => _repository = repository;
 
-        public Produto ObterProdutoPorId(int id)
-        {
-            try
-            {
-                return _repository.ObterPorId(id);
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
+        public Produto ObterProdutoPorId(int id) => _repository.ObterPorId(id);
     }
 }

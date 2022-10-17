@@ -1,7 +1,9 @@
-﻿namespace AppService.Interfaces
+﻿using Dominio.DTO.Produto;
+
+namespace AppService.Interfaces
 {
     public interface IProdutoApplicationService
     {
-        void VincularPromocaoAoProduto(int idDaPromocao, int idDoProduto);
+        DtoVincularPromocaoAoProdutoResponse VincularPromocaoAoProduto(DtoVincularPromocaoAoProdutoRequest dtoRequest);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AppService.DI;
 using AppService.Interfaces;
+using Dominio.DTO.Produto;
 using Dominio.Models;
 using Dominio.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -63,7 +64,7 @@ namespace Domain.Tests.Carrinho
                     carrinhoApp.LimparCarrinho();
 
                     // produto 2 possui promoção 1 (vincular)
-                    produtoApp.VincularPromocaoAoProduto(1, 2);
+                    produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(1, 2));
 
                     // adicionar 2 do produto 2 no carrinho
                     var item = new Item { IdDoProduto = 2, Quantidade = 2 };
@@ -97,7 +98,7 @@ namespace Domain.Tests.Carrinho
                     carrinhoApp.LimparCarrinho();
 
                     // produto 3 possui promoção 2 (vincular)
-                    produtoApp.VincularPromocaoAoProduto(2, 3);
+                    produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 3));
 
                     // Adicionar 3x (qtd 1 do produto 3 no carrinho)
                     var item = new Item { IdDoProduto = 3, Quantidade = 1 };
@@ -134,10 +135,10 @@ namespace Domain.Tests.Carrinho
                     carrinhoApp.LimparCarrinho();
 
                     // produto 2 possui promoção 1
-                    produtoApp.VincularPromocaoAoProduto(1, 2);
+                    produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(1, 2));
 
-                    // produto 3 possui promoção 2
-                    produtoApp.VincularPromocaoAoProduto(2, 3);
+                    // produto 3 possui promoção 2                    
+                    produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 3));
 
                     // adicionar 1 do produto 1 no carrinho
                     carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 1, Quantidade = 1 });
@@ -161,10 +162,6 @@ namespace Domain.Tests.Carrinho
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
         [TestMethod]
         public void AgruparProdutoxQuantidade_DeveIdentificar1ProdutoComQuantidade3()
         {
@@ -179,8 +176,8 @@ namespace Domain.Tests.Carrinho
                     // carrinho está vazio
                     carrinhoApp.LimparCarrinho();
 
-                    // produto 3 possui promoção 2 (vincular)
-                    produtoApp.VincularPromocaoAoProduto(2, 3);
+                    // produto 3 possui promoção 2 (vincular)                    
+                    produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 3));
 
                     // Adicionar 3x (qtd 1 do produto 3 no carrinho)                   
                     for (int i = 0; i < 3; i++)
@@ -221,6 +218,25 @@ namespace Domain.Tests.Carrinho
             catch (Exception)
             {
 
+                throw;
+            }
+        }
+
+        [TestMethod]
+        public void VincularProdutoComPromocaoQueNaoExiste_DeveIdentificarQueTemErroDeProdutoNaoEncontrado()
+        {
+            try
+            {
+                using (var provider = service.BuildServiceProvider())
+                {
+                    var produtoApp = provider.GetService<IProdutoApplicationService>();
+
+                    var dto = produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 10));
+                    Assert.IsTrue(dto.PossuiErros && dto.ListaErros[0].MensagemErro.Equals("Produto não encontrado."));
+                }
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }
