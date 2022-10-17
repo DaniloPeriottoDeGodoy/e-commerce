@@ -16,8 +16,7 @@ namespace Dominio.Models
         #region Propriedades
 
         public List<Item> ListaProdutosCarrinho { get; set; }
-
-        public bool CarrinhoVazio { get { return this.ListaProdutosCarrinho?.Count == 0; } }
+        public bool CarrinhoEstaVazio { get { return this.ListaProdutosCarrinho?.Count == 0; } }
         public bool CarrinhoPossuiItens { get { return this.ListaProdutosCarrinho != null && this.ListaProdutosCarrinho.Any(); } }
 
         #endregion
@@ -43,10 +42,45 @@ namespace Dominio.Models
                     {
                         listaAgrupadaPorProdutoxQuantidade.FirstOrDefault(x => x.IdDoProduto == item.IdDoProduto).Quantidade += item.Quantidade;
                     }
+                    else
+                    {
+                        listaAgrupadaPorProdutoxQuantidade.Add(item);
+                        continue;
+                    }
                 }
             }
 
             return listaAgrupadaPorProdutoxQuantidade;
+        }
+
+        private decimal CalcularValorSemPromocao(int quantidade, decimal preco) => (quantidade * preco);
+
+        private decimal CalcularValorComPromocao(Item item)
+        {
+            decimal valorTotal = 0;
+
+            int quantidadeMinima = item.ObterQuantidadeMinimaParaAplicarPromocao();
+            var quantidadeTotalDesseProduto = item.Quantidade;
+
+            while (quantidadeTotalDesseProduto > 0)
+            {
+                if (quantidadeTotalDesseProduto >= quantidadeMinima)
+                {                    
+                    if (item.ObterTipoPromocao() == TipoPromocao.LeveDoisPagueUm)
+                        valorTotal += (quantidadeMinima * item.Produto.Preco) / 2;
+
+                    if (item.ObterTipoPromocao() == TipoPromocao.TresPorDez)
+                        valorTotal += 10;
+
+                    quantidadeTotalDesseProduto -= quantidadeMinima;
+                }
+                else
+                {                    
+                    valorTotal += CalcularValorSemPromocao(quantidadeTotalDesseProduto, item.Produto.Preco);
+                    quantidadeTotalDesseProduto -= quantidadeTotalDesseProduto;
+                }
+            }
+            return valorTotal;
         }
 
         #endregion
@@ -61,28 +95,25 @@ namespace Dominio.Models
         {
             decimal valorTotal = 0;
 
-            if (this.CarrinhoVazio)
+            if (this.CarrinhoEstaVazio)
                 return 0;
 
             List<Item> listaAgrupadaPorProdutoxQuantidade = this.AgruparQuantidadePorProduto();
             foreach (var item in listaAgrupadaPorProdutoxQuantidade)
-            {                
+            {
                 if (item.Produto == null)
                     throw new Exception("Produto não encontrado.");
 
-                if (!item.Produto.PossuiPromocao)
+                if (item.Quantidade == 0)
+                    continue;
+
+                if (!item.PossuiPromocao)
                 {
-                    valorTotal += (item.Quantidade * item.Produto.Preco);
+                    valorTotal += CalcularValorSemPromocao(item.Quantidade, item.Produto.Preco);
                 }
                 else
                 {
-                    if (item.Produto.Promocao.TipoPromocao == TipoPromocao.LeveDoisPagueUm)
-                        valorTotal += (item.Quantidade * item.Produto.Preco) / 2;
-
-                    if (item.Produto.Promocao.TipoPromocao == TipoPromocao.TresPorDez && item.Quantidade == 3)
-                    {
-                        valorTotal += 10;
-                    }
+                    valorTotal += CalcularValorComPromocao(item);
                 }
             }
 

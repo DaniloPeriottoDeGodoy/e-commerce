@@ -2,7 +2,8 @@
 {
     public enum TipoPromocao
     {
+        SemPromocao,
         LeveDoisPagueUm,
-        TresPorDez
+        TresPorDez        
     }
 }

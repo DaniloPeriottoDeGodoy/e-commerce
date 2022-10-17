@@ -10,7 +10,7 @@ namespace Dominio.Models
         {
             this.Produto = produto;
 
-            if(this.Produto != null)
+            if (this.Produto != null)
                 this.IdDoProduto = this.Produto.Id;
 
             this.Quantidade = quantidade;
@@ -28,11 +28,23 @@ namespace Dominio.Models
 
         public int IdDoProduto { get; set; }
         public int Quantidade { get; set; }
-        public Produto Produto { get; set; }        
+        public Produto Produto { get; set; }
+        public bool PossuiPromocao
+        {
+            get
+            {
+                return this.Produto != null &&
+                       this.Produto.Promocao != null &&
+                       this.Produto.Promocao.Id > 0;
+            }
+        }
 
         #endregion
 
         #region Funções
+
+        public TipoPromocao ObterTipoPromocao() => this.Produto?.Promocao?.TipoPromocao ?? TipoPromocao.SemPromocao;
+        public int ObterQuantidadeMinimaParaAplicarPromocao() => this.Produto?.Promocao?.QuantidadeMinima ?? 0;
 
         // TODO. Adicionar Notification Patterns quando possúvel
         private void ValidarItem()

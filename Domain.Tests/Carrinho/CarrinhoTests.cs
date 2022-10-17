@@ -119,6 +119,49 @@ namespace Domain.Tests.Carrinho
             }
         }
 
+        // Cenário 4
+        [TestMethod]
+        public void AdicionarVariosItensNoCarrinho()
+        {
+            try
+            {
+                using (var provider = service.BuildServiceProvider())
+                {
+                    var carrinhoApp = provider.GetService<ICarrinhoApplicationService>();
+                    var produtoApp = provider.GetService<IProdutoApplicationService>();
+
+                    // carrinho está vazio
+                    carrinhoApp.LimparCarrinho();
+
+                    // produto 2 possui promoção 1
+                    produtoApp.VincularPromocaoAoProduto(1, 2);
+
+                    // produto 3 possui promoção 2
+                    produtoApp.VincularPromocaoAoProduto(2, 3);
+
+                    // adicionar 1 do produto 1 no carrinho
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 1, Quantidade = 1 });
+
+                    // adicionar 3 do produto 2 no carrinho
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 2, Quantidade = 3 });
+
+                    // adicionar 4 do produto 3 no carrinho
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 3, Quantidade = 4 });
+
+                    // o valor do carrinho deve ser 130
+                    var total = carrinhoApp.ObterValorTotalCarrinho();
+
+                    Assert.IsTrue(total == 130);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
         /// <summary>
         /// 
         /// </summary>
