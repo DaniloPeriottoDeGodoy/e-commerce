@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Dominio.DTO.Carrinho.ObterValorCarrinho;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
 using System.Net.Http;
@@ -45,12 +46,13 @@ namespace Api.Tests.Carrinho
 		public async Task ThenOValorDoCarrinhoDeveSer(decimal valor)
 		{
 			var response = await HttpClient.GetAsync($"http://localhost:5000/api/Carrinho/Total");
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+				var content = await response.Content.ReadAsStringAsync();
+				var dtoResponse = JsonConvert.DeserializeObject<DtoObterValorCarrinhoResponse>(content);				
 
-			var content = await response.Content.ReadAsStringAsync();
-
-			decimal total = Convert.ToDecimal(content);
-
-			Assert.AreEqual(valor, total);
+				Assert.AreEqual(valor, dtoResponse.ValorTotal);
+			}			
 		}
 	}
 }

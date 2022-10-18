@@ -9,15 +9,15 @@ namespace Dominio.Models
     {
         #region Construtor
 
-        public Carrinho() => this.ListaProdutosCarrinho = new List<Item>();
+        public Carrinho() => this.ListaItensCarrinho = new List<Item>();
 
         #endregion
 
         #region Propriedades
 
-        public List<Item> ListaProdutosCarrinho { get; set; }
-        public bool CarrinhoEstaVazio { get { return this.ListaProdutosCarrinho?.Count == 0; } }
-        public bool CarrinhoPossuiItens { get { return this.ListaProdutosCarrinho != null && this.ListaProdutosCarrinho.Any(); } }
+        public List<Item> ListaItensCarrinho { get; set; }
+        public bool CarrinhoEstaVazio { get { return this.ListaItensCarrinho?.Count == 0; } }
+        public bool CarrinhoPossuiItens { get { return this.ListaItensCarrinho != null && this.ListaItensCarrinho.Any(); } }
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace Dominio.Models
             var listaAgrupadaPorProdutoxQuantidade = new List<Item>();
             if (this.CarrinhoPossuiItens)
             {
-                foreach (var item in this.ListaProdutosCarrinho)
+                foreach (var item in this.ListaItensCarrinho)
                 {
                     // Quando não tem nada adiciona o primeiro produto à lista
                     if (listaAgrupadaPorProdutoxQuantidade.Count == 0)
@@ -87,9 +87,9 @@ namespace Dominio.Models
 
         #region Funções
 
-        public void LimparCarrinho() => this.ListaProdutosCarrinho = new List<Item>();
+        public void LimparCarrinho() => this.ListaItensCarrinho = new List<Item>();
 
-        public void AdicionarProdutoNoCarrinho(Produto produto, int quantidade) => this.ListaProdutosCarrinho.Add(new Item(produto, quantidade));
+        public void AdicionarProdutoNoCarrinho(Produto produto, int quantidade) => this.ListaItensCarrinho.Add(new Item(produto, quantidade));
 
         public decimal ObterValorTotalCarrinho()
         {
@@ -100,10 +100,7 @@ namespace Dominio.Models
 
             List<Item> listaAgrupadaPorProdutoxQuantidade = this.AgruparQuantidadePorProduto();
             foreach (var item in listaAgrupadaPorProdutoxQuantidade)
-            {
-                if (item.Produto == null)
-                    throw new Exception("Produto não encontrado.");
-
+            {                
                 if (item.Quantidade == 0)
                     continue;
 

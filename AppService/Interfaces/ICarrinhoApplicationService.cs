@@ -1,11 +1,13 @@
-﻿using Dominio.Models;
+﻿using Dominio.DTO.Carrinho.AdicionarItem;
+using Dominio.DTO.Carrinho.LimparCarrinho;
+using Dominio.DTO.Carrinho.ObterValorCarrinho;
 
 namespace AppService.Interfaces
 {
     public interface ICarrinhoApplicationService
     {
-        void AdicionarProdutoNoCarrinho(Item item);
-        void LimparCarrinho();
-        decimal ObterValorTotalCarrinho();
+        DtoAdicionarItemResponse AdicionarProdutoNoCarrinho(DtoAdicionarItemRequest dtoRequest);
+        DtoLimparCarrinhoResponse LimparCarrinho();
+        DtoObterValorCarrinhoResponse ObterValorTotalCarrinho();
     }
 }

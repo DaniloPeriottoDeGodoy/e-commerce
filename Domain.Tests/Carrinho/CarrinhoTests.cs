@@ -1,5 +1,6 @@
 ﻿using AppService.DI;
 using AppService.Interfaces;
+using Dominio.DTO.Carrinho.AdicionarItem;
 using Dominio.DTO.Produto;
 using Dominio.Models;
 using Dominio.Services;
@@ -33,13 +34,18 @@ namespace Domain.Tests.Carrinho
                     carrinhoApp.LimparCarrinho();
 
                     // adicionar 1 do produto 1 no carrinho
-                    var item = new Item { IdDoProduto = 1, Quantidade = 1 };
-                    carrinhoApp.AdicionarProdutoNoCarrinho(item);
+                    DtoAdicionarItemRequest dtoRequest = new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 1,
+                        Quantidade = 1
+                    };
+
+                    carrinhoApp.AdicionarProdutoNoCarrinho(dtoRequest);
 
                     // o valor do carrinho deve ser
-                    var total = carrinhoApp.ObterValorTotalCarrinho();
+                    var response = carrinhoApp.ObterValorTotalCarrinho();
 
-                    Assert.IsTrue(total == 50);
+                    Assert.IsTrue(response.ValorTotal == 50);
                 }
             }
             catch (Exception)
@@ -67,13 +73,17 @@ namespace Domain.Tests.Carrinho
                     produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(1, 2));
 
                     // adicionar 2 do produto 2 no carrinho
-                    var item = new Item { IdDoProduto = 2, Quantidade = 2 };
-                    carrinhoApp.AdicionarProdutoNoCarrinho(item);
+                    DtoAdicionarItemRequest dtoRequest = new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 2,
+                        Quantidade = 2
+                    };
+                    carrinhoApp.AdicionarProdutoNoCarrinho(dtoRequest);
 
                     // o valor do carrinho deve ser 30
-                    var total = carrinhoApp.ObterValorTotalCarrinho();
+                    var response = carrinhoApp.ObterValorTotalCarrinho();
 
-                    Assert.IsTrue(total == 30);
+                    Assert.IsTrue(response.ValorTotal == 30);
                 }
             }
             catch (Exception)
@@ -101,16 +111,21 @@ namespace Domain.Tests.Carrinho
                     produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 3));
 
                     // Adicionar 3x (qtd 1 do produto 3 no carrinho)
-                    var item = new Item { IdDoProduto = 3, Quantidade = 1 };
+                    DtoAdicionarItemRequest dtoRequest = new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 3,
+                        Quantidade = 1
+                    };
+
                     for (int i = 0; i < 3; i++)
                     {
-                        carrinhoApp.AdicionarProdutoNoCarrinho(item);
+                        carrinhoApp.AdicionarProdutoNoCarrinho(dtoRequest);
                     }
 
                     // o valor do carrinho deve ser 10
-                    var total = carrinhoApp.ObterValorTotalCarrinho();
+                    var response = carrinhoApp.ObterValorTotalCarrinho();
 
-                    Assert.IsTrue(total == 10);
+                    Assert.IsTrue(response.ValorTotal == 10);
                 }
             }
             catch (Exception)
@@ -140,19 +155,32 @@ namespace Domain.Tests.Carrinho
                     // produto 3 possui promoção 2                    
                     produtoApp.VincularPromocaoAoProduto(new DtoVincularPromocaoAoProdutoRequest(2, 3));
 
+
                     // adicionar 1 do produto 1 no carrinho
-                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 1, Quantidade = 1 });
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 1,
+                        Quantidade = 1
+                    });
 
                     // adicionar 3 do produto 2 no carrinho
-                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 2, Quantidade = 3 });
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 2,
+                        Quantidade = 3
+                    });
 
                     // adicionar 4 do produto 3 no carrinho
-                    carrinhoApp.AdicionarProdutoNoCarrinho(new Item { IdDoProduto = 3, Quantidade = 4 });
+                    carrinhoApp.AdicionarProdutoNoCarrinho(new DtoAdicionarItemRequest
+                    {
+                        IdDoProduto = 3,
+                        Quantidade = 4
+                    });
 
                     // o valor do carrinho deve ser 130
-                    var total = carrinhoApp.ObterValorTotalCarrinho();
+                    var response = carrinhoApp.ObterValorTotalCarrinho();
 
-                    Assert.IsTrue(total == 130);
+                    Assert.IsTrue(response.ValorTotal == 130);
                 }
             }
             catch (Exception)
@@ -182,8 +210,11 @@ namespace Domain.Tests.Carrinho
                     // Adicionar 3x (qtd 1 do produto 3 no carrinho)                   
                     for (int i = 0; i < 3; i++)
                     {
-                        var item = new Item { IdDoProduto = 3, Quantidade = 1 };
-                        carrinhoApp.AdicionarProdutoNoCarrinho(item);
+                        carrinhoApp.AdicionarProdutoNoCarrinho(new DtoAdicionarItemRequest
+                        {
+                            IdDoProduto = 3,
+                            Quantidade = 1
+                        });
                     }
 
                     // Antes de calcular o valor total do carrinho, é preciso identificar quantos itens tem de cada produto.
@@ -193,9 +224,9 @@ namespace Domain.Tests.Carrinho
                     var carrinho = carrinhoService.ObterCarrinho();
 
                     var listaAgrupadaPorProdutoxQuantidade = new List<Item>();
-                    if (carrinho.ListaProdutosCarrinho.Count > 0)
+                    if (carrinho.ListaItensCarrinho.Count > 0)
                     {
-                        foreach (var item in carrinho.ListaProdutosCarrinho)
+                        foreach (var item in carrinho.ListaItensCarrinho)
                         {
                             // Quando não tem nada adiciona o primeiro produto à lista
                             if (listaAgrupadaPorProdutoxQuantidade.Count == 0)

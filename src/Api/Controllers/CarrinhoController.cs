@@ -1,4 +1,7 @@
 ﻿using AppService.Interfaces;
+using Dominio.DTO.Carrinho.AdicionarItem;
+using Dominio.DTO.Carrinho.LimparCarrinho;
+using Dominio.DTO.Carrinho.ObterValorCarrinho;
 using Dominio.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,45 +17,54 @@ namespace Api.Controllers
         public CarrinhoController(ICarrinhoApplicationService carrinhoApplicationService) => _carrinhoApplicationService = carrinhoApplicationService;
 
         [HttpPost("Item")]
-        public void AdicionarItem(Item item)
+        public DtoAdicionarItemResponse AdicionarItem(DtoAdicionarItemRequest dtoRequest)
         {
+            DtoAdicionarItemResponse dtoResponse = new DtoAdicionarItemResponse();
             try
-            {
-                _carrinhoApplicationService.AdicionarProdutoNoCarrinho(item);
+            {                
+                dtoResponse = _carrinhoApplicationService.AdicionarProdutoNoCarrinho(dtoRequest);
+                return dtoResponse;
             }
             catch (Exception e)
             {
-                throw;
+                dtoResponse.AdicionarErro($"Ocorreu um erro ao adicionar item ao carrinho. Erro: {e.Message}");
+                return dtoResponse;
             }
         }
 
         [HttpPost("LimparCarrinho")]
-        public void LimparCarrinho()
+        public DtoLimparCarrinhoResponse LimparCarrinho()
         {
+            DtoLimparCarrinhoResponse dtoResponse = new DtoLimparCarrinhoResponse();
             try
             {
-                _carrinhoApplicationService.LimparCarrinho();
+                dtoResponse = _carrinhoApplicationService.LimparCarrinho();
+                return dtoResponse;
             }
             catch (Exception e)
             {
-                throw e;
+                dtoResponse.AdicionarErro($"Ocorreu um erro ao limpar o carrinho. Erro: {e.Message}");
+                return dtoResponse;
             }
         }
 
         [HttpGet("Total")]
-        public decimal ObterTotalDoCarrinho()
+        public DtoObterValorCarrinhoResponse ObterTotalDoCarrinho()
         {
-            decimal valorTotal;
+            DtoObterValorCarrinhoResponse dtoResponse = new DtoObterValorCarrinhoResponse();
+            
             try
             {
-                valorTotal = _carrinhoApplicationService.ObterValorTotalCarrinho();
+                dtoResponse = _carrinhoApplicationService.ObterValorTotalCarrinho();
+                return dtoResponse;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                dtoResponse.AdicionarErro($"Ocorreu um erro ao obter o valor total do carrinho. Erro: {e.Message}");
+                return dtoResponse;
             }
 
-            return valorTotal;
+            return dtoResponse;
         }
     }
 }

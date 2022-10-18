@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Dominio\Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Carrinho\Carrinho.feature.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
