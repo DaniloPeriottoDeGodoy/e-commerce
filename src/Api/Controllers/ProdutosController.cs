@@ -13,6 +13,12 @@ namespace Api.Controllers
 
         public ProdutosController(IProdutoApplicationService produtoApplicationService) => _produtoApplicationService = produtoApplicationService;
 
+        /// <summary>
+        /// EndPoint para vincular um produto a uma promoção.
+        /// </summary>
+        /// <param name="idDaPromocao">Id de uma promoção existente</param>
+        /// <param name="idDoProduto">Id de um produto existente</param>
+        /// <returns>Retorna um DTO contendo informações do produto e da promoção. </returns>
         [HttpPut("{idDoProduto}/Promocao/{idDaPromocao}")]
         public DtoVincularPromocaoAoProdutoResponse VincularPromocaoAoProduto(int idDaPromocao, int idDoProduto)
         {

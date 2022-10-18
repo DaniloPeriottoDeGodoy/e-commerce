@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Controllers.ProdutosController.VincularPromocaoAoProduto(System.Int32,System.Int32)">
+            <summary>
+            EndPoint para vincular um produto a uma promoção.
+            </summary>
+            <param name="idDaPromocao"></param>
+            <param name="idDoProduto"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

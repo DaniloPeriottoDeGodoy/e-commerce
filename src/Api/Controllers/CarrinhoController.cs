@@ -16,6 +16,11 @@ namespace Api.Controllers
 
         public CarrinhoController(ICarrinhoApplicationService carrinhoApplicationService) => _carrinhoApplicationService = carrinhoApplicationService;
 
+        /// <summary>
+        /// EndPoint para adicionar um novo item ao carrinho.
+        /// </summary>
+        /// <param name="dtoRequest"> Dto contendo o IdDoProduto e a Quantidade</param>
+        /// <returns>Retorna um DTO com o Carrinho no estado atual.</returns>
         [HttpPost("Item")]
         public DtoAdicionarItemResponse AdicionarItem(DtoAdicionarItemRequest dtoRequest)
         {
@@ -32,6 +37,10 @@ namespace Api.Controllers
             }
         }
 
+        /// <summary>
+        /// Endpoint para limpar o carrinho.
+        /// </summary>
+        /// <returns>Retorna um dto com o estado atual do carrinho</returns>
         [HttpPost("LimparCarrinho")]
         public DtoLimparCarrinhoResponse LimparCarrinho()
         {
@@ -48,6 +57,10 @@ namespace Api.Controllers
             }
         }
 
+        /// <summary>
+        /// EndPoint para obter o valor total do carrinho.
+        /// </summary>
+        /// <returns>Retorna um DTO contendo o valor total calculado.</returns>
         [HttpGet("Total")]
         public DtoObterValorCarrinhoResponse ObterTotalDoCarrinho()
         {
@@ -63,8 +76,6 @@ namespace Api.Controllers
                 dtoResponse.AdicionarErro($"Ocorreu um erro ao obter o valor total do carrinho. Erro: {e.Message}");
                 return dtoResponse;
             }
-
-            return dtoResponse;
         }
     }
 }
